@@ -1,0 +1,36 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'run',
+1 verbose cli   'debug:client' ]
+2 info using npm@4.1.2
+3 info using node@v7.7.4
+4 verbose run-script [ 'predebug:client', 'debug:client', 'postdebug:client' ]
+5 info lifecycle leesx@1.0.1~predebug:client: leesx@1.0.1
+6 silly lifecycle leesx@1.0.1~predebug:client: no script for predebug:client, continuing
+7 info lifecycle leesx@1.0.1~debug:client: leesx@1.0.1
+8 verbose lifecycle leesx@1.0.1~debug:client: unsafe-perm in lifecycle true
+9 verbose lifecycle leesx@1.0.1~debug:client: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;E:\git2017\app2017\node_modules\.bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Administrator\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\AMD\ATI.ACE\Core-Static;C:\Program Files\nodejs;D:\Program Files\Git LFS;C:\Python27;C:\Python27\Scripts;C:\ProgramData\chocolatey\bin;C:\Users\Administrator\AppData\Local\Android\Sdk\platform-tools;C:\Users\Administrator\AppData\Local\Android\Sdk\tools; ;C:\Users\Administrator\AppData\Local\atom\bin;C:\Users\Administrator\AppData\Roaming\npm;C:\adb;C:\Program Files (x86)\Microsoft VS Code\bin
+10 verbose lifecycle leesx@1.0.1~debug:client: CWD: E:\git2017\app2017
+11 silly lifecycle leesx@1.0.1~debug:client: Args: [ '/d /s /c',
+11 silly lifecycle   'cross-env NODE_ENV=development webpack-dev-server --progress --colors --display-error-details --display-modules --config webpack.config.dev.js' ]
+12 verbose stack Error: kill ENOSYS
+12 verbose stack     at exports._errnoException (util.js:1034:11)
+12 verbose stack     at process.kill (internal/process.js:188:13)
+12 verbose stack     at process.listener (C:\Program Files\nodejs\node_modules\npm\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:95:15)
+12 verbose stack     at emitNone (events.js:86:13)
+12 verbose stack     at process.emit (events.js:188:7)
+12 verbose stack     at processEmit (C:\Program Files\nodejs\node_modules\npm\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:155:32)
+12 verbose stack     at Signal.wrap.onsignal (internal/process.js:215:44)
+13 verbose cwd E:\git2017\app2017
+14 error Windows_NT 6.1.7601
+15 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run" "debug:client"
+16 error node v7.7.4
+17 error npm  v4.1.2
+18 error code ENOSYS
+19 error errno ENOSYS
+20 error syscall kill
+21 error kill ENOSYS
+22 error If you need help, you may report this error at:
+22 error     <https://github.com/npm/npm/issues>
+23 verbose exit [ 1, true ]

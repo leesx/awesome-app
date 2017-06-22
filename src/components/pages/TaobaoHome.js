@@ -1,0 +1,25 @@
+import React, { Component } from 'react';
+import { Link } from 'react-router'
+
+import TbHomeHeader from './../tb_widget/TbHomeHeader.js'
+import BrandSite from './../tb_widget/BrandSite.js'
+import TbNews from './../tb_widget/TbNews.js'
+import AdsSection from './../tb_widget/AdsSection.js'
+
+export default class TaobaoHome extends Component{
+	state={}
+
+	render(){
+		return (
+			<div>
+				<TbHomeHeader />
+				<div className="swipe-card">
+					<img src="//gw.alicdn.com/imgextra/i1/37/TB2_ey7yipnpuFjSZFkXXc4ZpXa_!!37-0-luban.jpg_q50.jpg" />
+				</div>
+				<BrandSite />
+				<TbNews />
+				<AdsSection />
+			</div>
+		)
+	}
+}
