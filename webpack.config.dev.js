@@ -30,7 +30,8 @@ const webpackConfig = {
         chunkFilename: 'static/scripts/page/[id].[name].chunk.js', // 按需加载的页面模块
     },
     watch: true,
-		externals: {
+	externals: {
+
     },
     resolve: {
         extensions: ["", ".js", ".jsx"],
@@ -103,7 +104,7 @@ const webpackConfig = {
         headers: {
             "Access-Control-Allow-Origin": "*"
         },
-				proxy: { // 跨域代理
+		proxy: { // 跨域代理
             '/list/*': {
                 changeOrigin: true,
                 target: 'https://m.toutiao.com',
@@ -115,6 +116,7 @@ const webpackConfig = {
         inline: true, //自动刷新
 				host:'0.0.0.0',// 设置本地IP,如果没有设置在移动端默认浏览器中没法访问
         port: WEBPACK_DEVSERVER_PORT,
+        disableHostCheck: true,
     },
     devtool: 'source-map',
 };

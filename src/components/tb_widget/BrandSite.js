@@ -58,37 +58,34 @@ const LINE2_SITE = [
 			siteUrl:''
 		},
 ]
-export default class BrandSite extends Component{
-	state={}
-
-	render(){
-		return (
-			<div className="brand-site">
-				<div>
-					{
-						LINE1_SITE.map((item,index)=>{
-							return (
-								<Link key={`BRAND_LOGO_${index}`} className="site-item" to={item.siteUrl}>
-									<i className="logo" style={{backgroundImage:`url(${item.logoUrl})`}}></i>
-									<span>{item.name}</span>
-								</Link>
-							)
-						})
-					}
-				</div>
-				<div>
-					{
-						LINE2_SITE.map((item,index)=>{
-							return (
-								<Link key={`BRAND_LOGO_${index}`} className="site-item" to={item.siteUrl}>
-									<i className="logo" style={{backgroundImage:`url(${item.logoUrl})`}}></i>
-									<span>{item.name}</span>
-								</Link>
-							)
-						})
-					}
-				</div>
+export default function BrandSite(props){
+	
+	return (
+		<div className="brand-site">
+			<div>
+				{
+					LINE1_SITE.map((item,index)=>{
+						return (
+							<Link key={`BRAND_LOGO_${index}`} className="site-item" to={item.siteUrl}>
+								<i className="logo" style={{backgroundImage:`url(${item.logoUrl})`}}></i>
+								<span>{item.name}</span>
+							</Link>
+						)
+					})
+				}
 			</div>
-		)
-	}
+			<div>
+				{
+					LINE2_SITE.map((item,index)=>{
+						return (
+							<Link key={`BRAND_LOGO_${index}`} className="site-item" to={item.siteUrl}>
+								<i className="logo" style={{backgroundImage:`url(${item.logoUrl})`}}></i>
+								<span>{item.name}</span>
+							</Link>
+						)
+					})
+				}
+			</div>
+		</div>
+	)
 }

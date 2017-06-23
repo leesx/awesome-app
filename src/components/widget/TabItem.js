@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router'
+import pureRender from "pure-render-decorator"
 
+@pureRender
 export default class TabItem extends Component {
   render(){
     return (

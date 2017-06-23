@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router'
+import pureRender from "pure-render-decorator"
 
-
+@pureRender
 export default class ChnGroup extends Component {
   constructor(props){
     super(props)

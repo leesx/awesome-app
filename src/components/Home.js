@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import pureRender from "pure-render-decorator"
 import axios from 'axios'
 
 
@@ -11,7 +12,8 @@ import {data as allNewsData} from './../mock/news_all.js'
 import {data as fashionData} from './../mock/news_fashion.js'
 import {data as societyData} from './../mock/news_society.js'
 
-class App extends Component {
+@pureRender
+export default class Home extends Component {
 	state={
 		dataSource:[]
 	}
@@ -70,4 +72,3 @@ class App extends Component {
   }
 }
 
-export default App;
