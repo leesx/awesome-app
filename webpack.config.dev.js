@@ -9,6 +9,10 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extractCSS = new ExtractTextPlugin('[name]-[contenthash:8].css')
+//输出颜色字体模块
+const chalk = require('chalk');
+//输出字符画模块
+const figlet = require('figlet');
 const moment = require('moment')
 const autoprefixer = require('autoprefixer');
 
@@ -18,6 +22,21 @@ const nowDateStr = moment().format("YYYY-MM-DD HH:mm:ss")
 const LOCAL_HOST = '192.168.5.127'
 //webpackserver port
 const WEBPACK_DEVSERVER_PORT = 3031
+
+
+function figletChalk(logTxt = 'Hello World'){
+    figlet( logTxt, function(err, data) {
+        if (err) {
+            console.log('Something went wrong...');
+            console.dir(err);
+            return;
+        }
+        console.log(chalk.green.italic(data),'@author Leesx.')
+    });
+}
+
+
+figletChalk('TuringDo Studio')
 
 const webpackConfig = {
     entry:{
@@ -121,5 +140,9 @@ const webpackConfig = {
     devtool: 'source-map',
 };
 
+// webpack(webpackConfig, function(data){
+//     figletChalk('SUCCESS')
+//     console.log(chalk.green('-----------------------编译完成-----------------------'))
+// });
 
 module.exports = webpackConfig
