@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title>app</title>
+		<title>2047app</title>
 		<meta charset="utf-8" />
 		<meta name="keywords" content="关键字" />
 		<meta name="description"  content="一些描述" />
@@ -21,10 +21,7 @@
 			</div>
 		</div>
 		<script  async src="https://cdn.bootcss.com/babel-polyfill/6.22.0/polyfill.min.js"></script>
-		<% if (process.env.NODE_ENV === 'development') { %>
-			<script src="./static/scripts/common/vendor.js"></script>
-		<% } else { %>
-			<script  src="./static/scripts/common/vendor.min.js"></script>
-		<% } %>
+		<script src="./static/scripts/common/<%= htmlWebpackPlugin.options.bundleName %>"></script>
+		
 	</body>
 </html>
