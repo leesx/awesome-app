@@ -1,5 +1,14 @@
-var vendor_library =
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["vendor_library"] = factory();
+	else
+		root["vendor_library"] = factory();
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -34667,4 +34676,5 @@ function routerMiddleware(history) {
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=vendor.42d3085aff91ff7641ae.js.map
+});
+//# sourceMappingURL=vendor.eb50c817af88e662d0ee.js.map

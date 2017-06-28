@@ -1,15 +1,19 @@
 const webpack = require('webpack')
 const path = require('path')
 const AssetsPlugin = require('assets-webpack-plugin');
+const WebpackMd5Hash = require('webpack-md5-hash');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const moment = require('moment')
+const nowDateStr = moment().format("YYYY-MM-DD HH:mm:ss")
 
 const vendors = [
     'react',
     'react-dom',
-    'redux',
-    'immutable',
-    'react-redux',
     'react-router',
-    'react-router-redux',
+    // 'redux',
+    // 'immutable',
+    // 'react-redux',
+    //'react-router-redux',
 ]
 
 var __DEV__ = process.env.NODE_ENV === 'production'
@@ -20,9 +24,11 @@ var config = {
         vendor: vendors,
     },
     output: {
+        //publicPath: '/',
         path:path.resolve(__dirname, 'static/scripts/common'),
-        filename: '[name].[hash].js',
-        library: '[name]_library'
+        filename: '[name].js',
+        library: '[name]_library',
+        libraryTarget: "umd"
     },
     plugins: [
         new webpack.DllPlugin({
@@ -50,15 +56,26 @@ var config = {
 
 //生产环境构建
 if (__DEV__ === true) {
-  config.output.filename = '[name].[hash].min.js';
-  config.plugins.push(new webpack.optimize.UglifyJsPlugin({
-    output: {
-      comments: false,
-    },
-    compress: {
-      warnings: false
-    }
-  }));
+  config.output.filename = '[name].[chunkhash].min.js';
+
+  const productionPlugins = [
+    new CleanWebpackPlugin(['static/'], {
+        root: '', // An absolute path for the root  of webpack.config.js
+        verbose: true,// Write logs to console.
+        dry: false // Do not delete anything, good for testing.
+    }),
+    new WebpackMd5Hash(),
+    new webpack.BannerPlugin(`Copyright Hualala inc. \n update: ${nowDateStr}`),
+    new webpack.optimize.UglifyJsPlugin({
+        output: {
+        comments: false,
+        },
+        compress: {
+        warnings: false
+        }
+    })
+  ]
+  config.plugins.push(...productionPlugins);
 }
 
 module.exports = config

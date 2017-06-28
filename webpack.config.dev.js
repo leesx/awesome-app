@@ -131,6 +131,11 @@ const webpackConfig = {
           context: __dirname,
           manifest: require('./manifest.development.json'),
         }),
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     name: ['common'], // 公共块的块名称
+        //     minChunks: Infinity, // 最小被引用次数，最小是2。传递Infinity只是创建公共块，但不移动模块。 
+        //     filename: 'static/scripts/[name].[hash].js', // 公共块的文件名
+        // }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'src/assets/template/tpl.ejs',
