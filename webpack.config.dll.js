@@ -25,7 +25,7 @@ var config = {
     },
     output: {
         //publicPath: '/',
-        path:path.resolve(__dirname, 'static/scripts/common'),
+        path:path.resolve(__dirname, 'dist/scripts/common'),
         filename: '[name].js',
         library: '[name]_library',
         libraryTarget: "umd"
@@ -59,10 +59,11 @@ if (__DEV__ === true) {
   config.output.filename = '[name].[chunkhash].min.js';
 
   const productionPlugins = [
-    new CleanWebpackPlugin(['static/'], {
-        root: '', // An absolute path for the root  of webpack.config.js
+    new CleanWebpackPlugin(['dist/scripts/common'], {
+        root: __dirname, // An absolute path for the root  of webpack.config.js
         verbose: true,// Write logs to console.
-        dry: false // Do not delete anything, good for testing.
+        dry: false, // Do not delete anything, good for testing.
+        exclude:['vendor.js'], //排除其他文件
     }),
     new WebpackMd5Hash(),
     new webpack.BannerPlugin(`Copyright Hualala inc. \n update: ${nowDateStr}`),

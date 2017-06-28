@@ -49,8 +49,8 @@ const webpackConfig = {
     output: {
         publicPath: `http://${LOCAL_HOST}:${WEBPACK_DEVSERVER_PORT}/`,
 		//path:path.join(__dirname, './'),
-        filename: "static/scripts/[name].js",   //打包后输出index.js
-        chunkFilename: 'static/scripts/page/[id].[name].chunk.js', // 按需加载的页面模块
+        filename: "dist/scripts/[name].js",   //打包后输出index.js
+        chunkFilename: 'dist/scripts/page/[name].chunk.js', // 按需加载的页面模块
     },
     watch: true,
 	externals: {
@@ -151,8 +151,6 @@ const webpackConfig = {
                 removeComments: true
             }
         }),  
-		//extractCSS,
-		new ExtractTextPlugin("static/styles/default/[name].css", { allChunks: true }),
         new webpack.BannerPlugin(`Copyright Hualala inc. \n update: ${nowDateStr}`),
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.HotModuleReplacementPlugin(),

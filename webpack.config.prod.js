@@ -24,8 +24,8 @@ module.exports = {
 	//vendors:'./static/scripts/common/vendor.js'
     } ,
     output: {
-        publicPath: '/static/', //页面中静态资源链接的公共部分的url 
-		path:path.resolve(__dirname, '/static/scripts'), // 打包后文件输出的绝对地址
+        publicPath: '/dist/', //页面中静态资源链接的公共的url 
+		path:path.resolve(__dirname, 'dist'), // 打包后文件输出的绝对地址
         filename: "scripts/[name].[chunkhash].min.js",   //打包后输出index.js
         chunkFilename: 'scripts/page/[name].[chunkhash].min.js', // 按需加载的页面模块
     },
@@ -128,7 +128,6 @@ module.exports = {
           context: __dirname,
           manifest: require('./manifest.production.json'),
         }),
-        //new ExtractTextPlugin("static/styles/default/[name].min.css", { allChunks: true }),
         new ExtractTextPlugin({
             filename: "styles/default/[name].min.css",
             disable: false,
