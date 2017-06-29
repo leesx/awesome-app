@@ -4,27 +4,24 @@
  * eg. import export
  */
 
-const webpack = require('webpack')
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const extractCSS = new ExtractTextPlugin('[name]-[contenthash:8].css')
-const assetsConfig = require("./assets.config.dev.json");
-//输出颜色字体模块
-const chalk = require('chalk');
-//输出字符画模块
-const figlet = require('figlet');
-const moment = require('moment')
-const autoprefixer = require('autoprefixer');
+const webpack = require('webpack'),
+path = require('path'),
+HtmlWebpackPlugin = require('html-webpack-plugin'),
+ExtractTextPlugin = require('extract-text-webpack-plugin'),
+extractCSS = new ExtractTextPlugin('[name]-[contenthash:8].css'),
+ip = require('ip'),
+assetsConfig = require("./assets.config.dev.json");
 
-const nowDateStr = moment().format("YYYY-MM-DD HH:mm:ss")
 
-//TODO 修改为本机IP
-const LOCAL_HOST = '192.168.5.127'
-//webpackserver port
-const WEBPACK_DEVSERVER_PORT = 3031
-//判断是否为生产环境
-const __DEV__ = process.env.NODE_ENV === 'production' 
+const chalk = require('chalk'),//输出颜色字体模块
+figlet = require('figlet'),//输出字符画模块
+moment = require('moment'),
+autoprefixer = require('autoprefixer');
+
+const nowDateStr = moment().format("YYYY-MM-DD HH:mm:ss"),
+LOCAL_HOST = ip.address(),//TODO 修改为本机IP
+WEBPACK_DEVSERVER_PORT = 3031,//WEBPACKSERVER PORT
+__DEV__ = process.env.NODE_ENV === 'production' ;//判断是否为生产环境
 
 
 function figletChalk(logTxt = 'Hello World'){

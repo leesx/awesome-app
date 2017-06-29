@@ -64,6 +64,7 @@
     "extract-text-webpack-plugin": "^3.0.0-beta.3",
     "figlet": "^1.2.0",
     "html-webpack-plugin": "^2.28.0",
+    "ip": "^1.1.5",
     "js-beautify": "^1.6.12",
     "jshint": "^2.9.5",
     "koa-bodyparser": "^4.2.0",

@@ -4,19 +4,17 @@
  * eg. import export
  */
 const webpack = require('webpack')
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const extractCSS = new ExtractTextPlugin('[name]-[contenthash:8].css')
-const assetsConfig = require("./assets.config.prod.json");
-const moment = require('moment')
-const autoprefixer = require('autoprefixer')
-const WebpackMd5Hash = require('webpack-md5-hash');
+path = require('path'),
+HtmlWebpackPlugin = require('html-webpack-plugin'),
+ExtractTextPlugin = require('extract-text-webpack-plugin'),
+extractCSS = new ExtractTextPlugin('[name]-[contenthash:8].css'),
+assetsConfig = require("./assets.config.prod.json"),
+moment = require('moment'),
+autoprefixer = require('autoprefixer'),
+webpackMd5Hash = require('webpack-md5-hash');
 
-const nowDateStr = moment().format("YYYY-MM-DD HH:mm:ss")
-
-//判断是否为生产环境
-const __DEV__ = process.env.NODE_ENV === 'production' 
+const nowDateStr = moment().format("YYYY-MM-DD HH:mm:ss"),
+__DEV__ = process.env.NODE_ENV === 'production' ;//判断是否为生产环境
 
 module.exports = {
     entry:{
@@ -32,11 +30,11 @@ module.exports = {
     resolve: {
         extensions: [".js", ".jsx",'.html'],
         alias: {
-                assets:path.resolve(__dirname,'src/assets'),
-                components: path.resolve(__dirname, 'src/components'),
-                containers: path.resolve(__dirname, 'src/containers'),
-                routes: path.resolve(__dirname, 'src/routes'),
-                helpers: path.resolve(__dirname, 'src/helpers'),
+            assets:path.resolve(__dirname,'src/assets'),
+            components: path.resolve(__dirname, 'src/components'),
+            containers: path.resolve(__dirname, 'src/containers'),
+            routes: path.resolve(__dirname, 'src/routes'),
+            helpers: path.resolve(__dirname, 'src/helpers'),
         },
     },
     module: {
@@ -80,7 +78,7 @@ module.exports = {
     },
     
     plugins: [
-        new WebpackMd5Hash(),
+        new webpackMd5Hash(),
         new webpack.LoaderOptionsPlugin({
             options: {
                 postcss: function(){
@@ -129,7 +127,7 @@ module.exports = {
           manifest: require('./manifest.production.json'),
         }),
         new ExtractTextPlugin({
-            filename: "styles/default/[name].min.css",
+            filename: "styles/default/[name].[chunkhash].min.css",
             disable: false,
             allChunks: true,
         }),
