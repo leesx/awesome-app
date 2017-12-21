@@ -1,7 +1,7 @@
 {
   "name": "leesx",
   "version": "1.0.1",
-  "description": "In the YunPad project using the react technology stack.",
+  "description": "In the app PWA PROJECT using the react technology stack.",
   "main": "index.js",
   "scripts": {
     "dll:dev": "cross-env NODE_ENV=development webpack --config webpack.config.dll.js",
