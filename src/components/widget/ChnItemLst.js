@@ -20,7 +20,7 @@ export default class ChnItemLst extends Component{
   renderItem(){
     const { dataSource } = this.props
 
-    if(!dataSource.length) return (<div>加载zhong....</div>);
+    if(!dataSource.length) return (<div className="my-loading"><img src={require('assets/img/index.cutie-fox-spinner.svg')} /></div>);
     return dataSource.map((item,index)=>{
       return <ChnItem key={`ChnItem_${index}`} title={item.title} imglist={item.image_list}  />
     })

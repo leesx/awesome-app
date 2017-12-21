@@ -52,7 +52,6 @@ export default class Home extends Component {
 	}
   render() {
 		const { dataSource } = this.state
-		console.log(dataSource)
     return (
       <div className="App">
         <div className="fixed-top">
