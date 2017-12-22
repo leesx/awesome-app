@@ -11,9 +11,9 @@ import './utils/flexible.js';
 
 
 
-import Home from 'components/Home.js';
-import SearchPage from 'components/pages/SearchPage.js';
-import TaobaoHome from 'components/pages/TaobaoHome.js';
+// import Home from 'components/Home.js';
+// import SearchPage from 'components/pages/SearchPage.js';
+// import TaobaoHome from 'components/pages/TaobaoHome.js';
 
 //性能调优工具
 import Perf from 'react-addons-perf';
@@ -37,14 +37,28 @@ function App(props){
   )
 }
 
-
+const Home  = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('components/Home').default);
+    }, 'home');
+};
+const SearchPage  = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('components/pages/SearchPage').default);
+    }, 'search_page');
+};
+const TaobaoHome  = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('components/pages/TaobaoHome').default);
+    }, 'taobao_home');
+};
 ReactDOM.render((
   <Router history={hashHistory}>
     <Route path="/" component={App}>
 			<IndexRedirect  to="/news/news_all" />
-			<Route path="/news/:cid" component={Home} />
-			<Route path="/search" component={SearchPage} />
-			<Route path="/taobao" component={TaobaoHome} />
+			<Route path="/news/:cid" getComponent={Home}  />
+			<Route path="/search" getComponent={SearchPage} />
+			<Route path="/taobao" getComponent={TaobaoHome} />
     </Route>
   </Router>
 ), document.getElementById('root'))

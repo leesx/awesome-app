@@ -1,7 +1,7 @@
 // configuration
 
 const
-  version = '1.1.1',
+  version = '1.1.14',
   CACHE = version + '::2014app',
   offlineURL = '/offline/',
   //一个拥有离线功能的页面必要文件的数组

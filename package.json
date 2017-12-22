@@ -7,7 +7,7 @@
     "dll:dev": "cross-env NODE_ENV=development webpack --config webpack.config.dll.js",
     "dll:prod": "cross-env NODE_ENV=production webpack --config webpack.config.dll.js",
     "dll": "npm run dll:dev && npm run dll:prod",
-    "mock:online": "node server.js",
+    "mock:online": "nodemon server.js",
     "debug": "cross-env NODE_ENV=development  webpack-dev-server --progress --inline --hot  --colors --config webpack.config.dev.js",
     "build": "cross-env NODE_ENV=production BABEL_ENV=production webpack --config webpack.config.prod.js --colors --progress && echo '前端程序：编译完成'",
     "test": "echo \"Error: no test specified\" && exit 1"
