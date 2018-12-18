@@ -66,7 +66,7 @@ if (__DEV__ === true) {
         exclude:['vendor.js'], //排除其他文件
     }),
     new WebpackMd5Hash(),
-    new webpack.BannerPlugin(`Copyright Hualala inc. \n update: ${nowDateStr}`),
+    new webpack.BannerPlugin(`Copyright leesx inc. \n update: ${nowDateStr}`),
     new webpack.optimize.UglifyJsPlugin({
         output: {
         comments: false,
